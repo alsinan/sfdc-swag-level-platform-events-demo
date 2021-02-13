@@ -161,7 +161,7 @@ function subscribeToEvents( sfClient, res ) {
 
         // Send each new message as it arrives
 
-        alert('-------'+message.Name__c+'-------');
+        alert(message.Name__c);
         console.log( '-- RECEIVED EVENT -----------------------------------------------' );
         console.log( message );
         console.log( '-----------------------------------------------------------------' );
