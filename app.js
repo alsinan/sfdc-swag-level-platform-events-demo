@@ -131,9 +131,9 @@ app.get( '/publish', function( req, res ) {
         version : req.query.version
     });
 
-    sfClient.sobject( 'Swag_Level__e' ).create({
+    sfClient.sobject( 'Sample_Event__e' ).create({
 
-        'Level__c' : 'Low'
+        'Name__c' : 'Low'
 
     }).then( function( result ) {
 
@@ -157,7 +157,7 @@ function subscribeToEvents( sfClient, res ) {
     console.log( 'subscribing to events...' );
 
     // http://paulbattisson.com/blog/2017/consuming-platform-events-in-10-lines-of-javascript/
-    sfClient.streaming.topic( '/event/Swag_Level__e' ).subscribe( function( message ) {
+    sfClient.streaming.topic( '/event/Sample_Event__e' ).subscribe( function( message ) {
 
         console.log( '-- RECEIVED EVENT -----------------------------------------------' );
         console.log( message );
