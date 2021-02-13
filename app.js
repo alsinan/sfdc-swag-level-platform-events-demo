@@ -162,9 +162,9 @@ function subscribeToEvents( sfClient, res ) {
         // Send each new message as it arrives
         //redisStream.on("message", function (message) {
         //messageCount++;
-            res.write(message);
+         //   res.write(message);
          
-            res.write('\n');
+         //   res.write('\n');
        // });
 
 
