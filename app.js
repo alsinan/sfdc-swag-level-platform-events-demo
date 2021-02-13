@@ -160,6 +160,7 @@ function subscribeToEvents( sfClient, res ) {
     sfClient.streaming.topic( '/event/Sample_Event__e' ).subscribe( function( message ) {
 
         // Send each new message as it arrives
+
         console.log( '-- RECEIVED EVENT -----------------------------------------------' );
         console.log( message );
         console.log( '-----------------------------------------------------------------' );
