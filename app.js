@@ -172,7 +172,7 @@ function subscribeToEvents( sfClient, res ) {
             'Content-Type': 'text/plain'
         });
         response.write(message);
-        response.end();
+        //response.end();
     };
      
     http.createServer(handleRequest).listen(8080);
