@@ -49,7 +49,7 @@ app.use( function( req, res, next ) {
 
 });
 
-app.listen( process.env.PORT || 8080 );
+app.listen(8080);
 
 // ==============================================
 // Endpoints
@@ -81,7 +81,7 @@ app.get( '/oauth2/callback', function( req, res ) {
     // if this redirection did not respond in time.
     // to avoid having a duplicate request we must tell the browser to wait longer
     // https://github.com/expressjs/express/issues/2512
-    req.connection.setTimeout( 1000 * 60 * 10 ); // ten minutes
+    //req.connection.setTimeout( 1000 * 60 * 10 ); // ten minutes
 
     // initialize salesforce client for making the oauth authorization request
     var sfClient = new jsforce.Connection({
