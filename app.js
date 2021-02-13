@@ -160,12 +160,12 @@ function subscribeToEvents( sfClient, res ) {
     sfClient.streaming.topic( '/event/Sample_Event__e' ).subscribe( function( message ) {
 
         // Send each new message as it arrives
-        redisStream.on("message", function (message) {
+        //redisStream.on("message", function (message) {
         //messageCount++;
             res.write(message);
          
             res.write('\n');
-        });
+       // });
 
 
         console.log( '-- RECEIVED EVENT -----------------------------------------------' );
