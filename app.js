@@ -133,7 +133,7 @@ app.get( '/publish', function( req, res ) {
 
     sfClient.sobject( 'Sample_Event__e' ).create({
 
-        'Name__c' : 'Low'
+        'Name__c' : 'Event published from external system'
 
     }).then( function( result ) {
 
@@ -166,7 +166,16 @@ function subscribeToEvents( sfClient, res ) {
          
          //   res.write('\n');
        // });
-
+       let http = require('http');
+       let handleRequest = (message, response) => {
+        response.writeHead(200, {
+            'Content-Type': 'text/plain'
+        });
+        response.write(message);
+        response.end();
+    };
+     
+    http.createServer(handleRequest).listen(8080);
 
         console.log( '-- RECEIVED EVENT -----------------------------------------------' );
         console.log( message );
