@@ -160,23 +160,8 @@ function subscribeToEvents( sfClient, res ) {
     sfClient.streaming.topic( '/event/Sample_Event__e' ).subscribe( function( message ) {
 
         // Send each new message as it arrives
-        //redisStream.on("message", function (message) {
-        //messageCount++;
-         //   res.write(message);
-         
-         //   res.write('\n');
-       // });
-       let http = require('http');
-       let handleRequest = (message, response) => {
-        response.writeHead(200, {
-            'Content-Type': 'text/plain'
-        });
-        response.write(message);
-        //response.end();
-    };
-     
-    http.createServer(handleRequest).listen(8080);
 
+        res.write('NEWWEEEEEEEEEEEEEEEEEEEEEEEEEEEE');
         console.log( '-- RECEIVED EVENT -----------------------------------------------' );
         console.log( message );
         console.log( '-----------------------------------------------------------------' );
