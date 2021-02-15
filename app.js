@@ -88,7 +88,7 @@ app.get( '/oauth2/callback', function( req, res ) {
     });
 
     // salesforce oauth authorize request to get access token
-    sfClient.authorize( req.query.code, function( err ) {
+    sfClient.authorize( req.query.code, function( err, userInfo ) {
 
         if ( err ) {
 
