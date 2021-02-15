@@ -45,7 +45,7 @@ app.use( function( req, res, next ) {
         'Pragma' : 'no-cache'
     });
 
-    //next();
+    next();
 
 });
 
