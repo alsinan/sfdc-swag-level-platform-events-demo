@@ -4,9 +4,11 @@
 // Load libraries
 // ==============================================
 
+var dotenv   = require('dotenv').config();          // necessary if running via 'node app.js' instead of 'heroku local'
 var jsforce  = require('jsforce');                  // salesforce client
 var express  = require('express');                  // nodejs de-facto web server
 var exphbs   = require('express-handlebars');       // for html templating responses
+var path     = require('path');                     // utility for parsing and formatting file paths
 
 // ==============================================
 // Salesforce OAuth Settings (reusable)
@@ -24,7 +26,7 @@ var sf_oauth2 = new jsforce.OAuth2({
 // ==============================================
 
 var app = express();
-app.set('session', 'api refresh-token');
+
 app.engine( 'handlebars', exphbs( { defaultLayout: 'main' } ) );
 
 app.set( 'view engine', 'handlebars' );
@@ -131,7 +133,7 @@ app.get( '/publish', function( req, res ) {
 
     sfClient.sobject( 'Sample_Event__e' ).create({
 
-        'Name__c' : 'Event published from external system'
+        'Name__c' : 'Low'
 
     }).then( function( result ) {
 
@@ -156,6 +158,16 @@ function subscribeToEvents( sfClient, res ) {
 
     // http://paulbattisson.com/blog/2017/consuming-platform-events-in-10-lines-of-javascript/
     sfClient.streaming.topic( '/event/Sample_Event__e' ).subscribe( function( message ) {
+
+        // Send each new message as it arrives
+        //redisStream.on("message", function (message) {
+        //messageCount++;
+         //   res.write(message);
+         
+         //   res.write('\n');
+       // });
+
+
         console.log( '-- RECEIVED EVENT -----------------------------------------------' );
         console.log( message );
         console.log( '-----------------------------------------------------------------' );
