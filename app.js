@@ -26,7 +26,7 @@ var sf_oauth2 = new jsforce.OAuth2({
 // ==============================================
 
 var app = express();
-
+app.set('session', 'api refresh-token');
 app.engine( 'handlebars', exphbs( { defaultLayout: 'main' } ) );
 
 app.set( 'view engine', 'handlebars' );
