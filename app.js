@@ -175,7 +175,6 @@ function subscribeToEvents( sfClient, res ) {
     });
 
     res.redirect( '/subscribe?accessToken=' + sfClient.accessToken + '&instanceUrl=' + sfClient.instanceUrl );
-
 }
 
 /**
