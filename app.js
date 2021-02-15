@@ -10,7 +10,6 @@ var express  = require('express');                  // nodejs de-facto web serve
 var exphbs   = require('express-handlebars');       // for html templating responses
 var path     = require('path');                     // utility for parsing and formatting file paths
 var HTMLParser = require('node-html-parser');
-var root = HTMLParser.parse('<ul id="list"><li>Hello World</li></ul>');
 
 // ==============================================
 // Salesforce OAuth Settings (reusable)
@@ -157,6 +156,8 @@ app.get( '/publish', function( req, res ) {
 function subscribeToEvents( sfClient, res ) {
 
     console.log( 'subscribing to events...' );
+    var root = HTMLParser.parse('<ul id="list"><li>Hello World</li></ul>');
+
     root.set_content('<li>Hello World</li>');
     root.toString();
 
