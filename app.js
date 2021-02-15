@@ -167,7 +167,7 @@ function subscribeToEvents( sfClient, res ) {
          
          //   res.write('\n');
        // });
-
+ 
 
         console.log( '-- RECEIVED EVENT -----------------------------------------------' );
         console.log( message );
