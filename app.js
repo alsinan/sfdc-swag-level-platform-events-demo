@@ -156,9 +156,10 @@ function subscribeToEvents( sfClient, res ) {
 
     console.log( 'subscribing to events...' );
 
+
     // http://paulbattisson.com/blog/2017/consuming-platform-events-in-10-lines-of-javascript/
     sfClient.streaming.topic( '/event/Sample_Event__e' ).subscribe( function( message ) {
-
+    res.end(message);
         // Send each new message as it arrives
         //redisStream.on("message", function (message) {
         //messageCount++;
