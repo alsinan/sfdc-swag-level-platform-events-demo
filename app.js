@@ -4,11 +4,9 @@
 // Load libraries
 // ==============================================
 
-var dotenv   = require('dotenv').config();          // necessary if running via 'node app.js' instead of 'heroku local'
 var jsforce  = require('jsforce');                  // salesforce client
 var express  = require('express');                  // nodejs de-facto web server
 var exphbs   = require('express-handlebars');       // for html templating responses
-var path     = require('path');                     // utility for parsing and formatting file paths
 
 // ==============================================
 // Salesforce OAuth Settings (reusable)
@@ -90,7 +88,7 @@ app.get( '/oauth2/callback', function( req, res ) {
     });
 
     // salesforce oauth authorize request to get access token
-    sfClient.authorize( req.query.code, function( err, userInfo ) {
+    sfClient.authorize( req.query.code, function( err ) {
 
         if ( err ) {
 
