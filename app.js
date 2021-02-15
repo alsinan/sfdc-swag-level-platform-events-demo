@@ -159,7 +159,6 @@ function subscribeToEvents( sfClient, res ) {
 
     // http://paulbattisson.com/blog/2017/consuming-platform-events-in-10-lines-of-javascript/
     sfClient.streaming.topic( '/event/Sample_Event__e' ).subscribe( function( message ) {
-        
      
         console.log( '-- RECEIVED EVENT -----------------------------------------------' );
         console.log( message );
